@@ -271,9 +271,10 @@ The container is also available on the GitHub Container Registry:
 
     $ docker pull ghcr.io/restic/restic
 
-Restic relies on the hostname for various operations. Make sure to set a static
-hostname using `--hostname` when creating a Docker container, otherwise Docker
-will assign a random hostname each time.
+Restic relies on the hostname to tag snapshots and optimize deduplication, among
+other things.  You should set a static hostname, either using `--hostname` when
+creating a Docker container or by using the `--host` option to `restic backup`.
+By default, Docker would pick a random hostname each time.
 
 From Source
 ***********
